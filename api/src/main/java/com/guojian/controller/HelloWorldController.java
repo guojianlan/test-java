@@ -14,6 +14,7 @@ public class HelloWorldController {
     @Autowired
     private HelloWorld helloWorld;
 
+
     @GetMapping("hello")
     public String test(){
         return helloWorld.test()+"ccc";
@@ -22,5 +23,15 @@ public class HelloWorldController {
     @GetMapping("list")
     public List<Award> testList(){
         return helloWorld.list();
+    }
+    /**
+     * Goods goods = goodsService.getOne(Wrappers.lambdaQuery(Goods.class).eq(Goods::getPid, pid)
+     *                 .eq(Goods::getStatus, 0)
+     *                 .last(" LIMIT 1 "));
+     */
+    @GetMapping("id")
+    public Award testItem(){
+        Integer pid = 1;
+        return helloWorld.getById(pid);
     }
 }
